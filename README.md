@@ -1,4 +1,4 @@
-<center><h1>Self Terminating ECS Worker CDK</h1></center>
+<h1 align="center">Self Terminating ECS Worker CDK</h1>
 
 This project provides an example for creating worker processes using ECS that automatically scales EC2 instance counts to 0 when a task is done.
 
