@@ -15,8 +15,6 @@ assert QueueUrl != '', 'Queue URL should be defined.'
 assert ClusterName != '', 'Cluster name should be defined.'
 
 def get_messages():
-	sqs = boto3.resource("sqs")
-
 	resp = client.receive_message(QueueUrl=QueueUrl,MaxNumberOfMessages=1)
 
 	if resp['ResponseMetadata']['HTTPStatusCode']!=200:
