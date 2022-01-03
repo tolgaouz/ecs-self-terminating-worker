@@ -19,7 +19,7 @@ I initially created this fairly simple template to asynchronously retrieve messa
 
 ## How it works
 
-<img src="images/diagram.png" style="background-color:white;padding:15px;border-radius:5px"/>
+<img src="images/diagram.jpg" style="background-color:white;padding:15px;border-radius:5px"/>
 
 First, a client must send messages to the SQS queue created by this CDK stack.
 
@@ -55,7 +55,7 @@ Based on the [CRON_RATE](.env.example), the lambda function will be invoked ever
 
 **GPU_ENABLED**\*: 0 or 1 = If the instance requires a GPU hardware. Such as g4dn.\* instances, keep in mind that these will come with NVidia CUDA pre-installed so you can work with it.
 
-**ARM_INSTANCE**\*: 0 or 1 = If the instance is ARM-based. Such as a1.* instances.
+**ARM_INSTANCE**\*: 0 or 1 = If the instance is ARM-based. Such as a1.\* instances.
 
 **ECS_TASK_DEFINITION_MEMORY_LIMIT**\*: Number = Soft memory limit for the docker container. Since we'll be running one task on one instance with this stack all the time, you can set this number equal to the memory of your [selected instance](https://aws.amazon.com/tr/ec2/instance-types/). e.g. 2048 for t2.small
 
