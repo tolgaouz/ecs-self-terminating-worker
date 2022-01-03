@@ -11,7 +11,6 @@ import * as sqs from "aws-cdk-lib/aws-sqs";
 import { Construct } from "constructs";
 import * as path from "path";
 import { ManagedPolicy } from "aws-cdk-lib/aws-iam";
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class EcsSelfTerminatingWorkerStack extends Stack {
   private NAME = "SelfTerminatingWorker";
@@ -24,8 +23,6 @@ export class EcsSelfTerminatingWorkerStack extends Stack {
     let hardwareType: ecs.AmiHardwareType = ecs.AmiHardwareType.STANDARD;
     if (Boolean(this.GPU_ENABLED)) hardwareType = ecs.AmiHardwareType.GPU;
     if (Boolean(this.ARM_INSTANCE)) hardwareType = ecs.AmiHardwareType.ARM;
-
-    console.log(hardwareType);
 
     const asg = new autoscaling.AutoScalingGroup(this, "ASG", {
       instanceType: new ec2.InstanceType(process.env.EC2_INSTANCE_TYPE!),
@@ -43,7 +40,6 @@ export class EcsSelfTerminatingWorkerStack extends Stack {
     });
     cluster.addAsgCapacityProvider(capacityProvider);
 
-    // create a task definition with CloudWatch Logs
     const logging = new ecs.AwsLogDriver({ streamPrefix: this.NAME });
 
     const queue = new sqs.Queue(this, `Queue`, {
