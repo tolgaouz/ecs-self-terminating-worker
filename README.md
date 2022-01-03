@@ -19,7 +19,7 @@ I initially created this fairly simple template to asynchronously retrieve messa
 
 ## How it works
 
-<img src="images/diagram.jpg" style="background-color:white;padding:15px;border-radius:5px"/>
+<img align="center" src="images/diagram.jpg"/>
 
 First, a client must send messages to the SQS queue created by this CDK stack.
 
